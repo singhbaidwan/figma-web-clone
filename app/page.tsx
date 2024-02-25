@@ -1,9 +1,10 @@
-import { Room } from "./Room";
+"use client";
+import Live from "@/components/Live";
 
 export default function Home() {
   return (
-    <Room>
-      <h1 className="text-5xl text-white">Dalveer singh</h1>
-    </Room>
+    <div className="">
+      <Live />
+    </div>
   );
 }
