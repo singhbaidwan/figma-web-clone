@@ -29,7 +29,13 @@ type Storage = {
 //   id?: string,  // Accessible through `user.id`
 //   info?: Json,  // Accessible through `user.info`
 // };
-
+type UserMeta = {
+  info: {
+    name: string;
+    color: [string, string];
+    avatar?: string;
+  };
+};
 // Optionally, the type of custom events broadcast and listened to in this
 // room. Must be JSON-serializable.
 // type RoomEvent = {};

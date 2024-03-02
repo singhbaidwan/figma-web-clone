@@ -11,6 +11,7 @@ import { CursorMode, CursorState, Reaction, ReactionEvent } from "@/types/type";
 import ReactionSelector from "./reaction/ReactionButton";
 import FlyingReaction from "./reaction/FlyingReaction";
 import useInterval from "@/hooks/useInterval";
+import LiveAvatars from "./users/LiveAvatar";
 
 type CursorStateType = {
   mode: CursorMode;
@@ -164,6 +165,7 @@ const Live = () => {
       className="h-[100vh] w-full flex justify-center items-center text-center"
     >
       <h1 className="text-2xl text-white">Figma Clone</h1>
+      {/* <LiveAvatars /> */}
       {reactions.map((r) => (
         <FlyingReaction
           key={r.timestamp.toString()}
