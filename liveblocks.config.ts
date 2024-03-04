@@ -39,7 +39,15 @@ type UserMeta = {
 // Optionally, the type of custom events broadcast and listened to in this
 // room. Must be JSON-serializable.
 // type RoomEvent = {};
-
+// Optionally, when using Comments, ThreadMetadata represents metadata on
+// each thread. Can only contain booleans, strings, and numbers.
+export type ThreadMetadata = {
+  resolved: boolean;
+  zIndex: number;
+  time?: number;
+  x: number;
+  y: number;
+};
 export const {
   suspense: {
     RoomProvider,
@@ -65,5 +73,16 @@ export const {
     useCanUndo,
     useCanRedo,
     useMutation,
+    useStatus,
+    useLostConnectionListener,
+    useThreads,
+    useUser,
+    useCreateThread,
+    useEditThreadMetadata,
+    useCreateComment,
+    useEditComment,
+    useDeleteComment,
+    useAddReaction,
+    useRemoveReaction,
   },
 } = createRoomContext<Presence, Storage>(client);
