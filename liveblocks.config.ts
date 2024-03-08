@@ -1,5 +1,6 @@
 import { LiveMap, createClient } from "@liveblocks/client";
 import { createRoomContext } from "@liveblocks/react";
+import { ReactionEvent } from "./types/type";
 
 const client = createClient({
   publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY!,
@@ -9,8 +10,8 @@ const client = createClient({
 // and that will automatically be kept in sync. Accessible through the
 // `user.presence` property. Must be JSON-serializable.
 type Presence = {
-  // cursor: { x: number, y: number } | null,
-  // ...
+  cursor: { x: number; y: number } | null;
+  message: string | null;
 };
 
 // Optionally, Storage represents the shared document that persists in the
@@ -31,10 +32,7 @@ type Storage = {
 //   info?: Json,  // Accessible through `user.info`
 // };
 type UserMeta = {};
-type RoomEvent = {
-  // type: "NOTIFICATION",
-  // ...
-};
+type RoomEvent = ReactionEvent;
 // Optionally, the type of custom events broadcast and listened to in this
 // room. Must be JSON-serializable.
 // type RoomEvent = {};

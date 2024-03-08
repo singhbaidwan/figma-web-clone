@@ -15,6 +15,7 @@ import {
   handleCanvasObjectModified,
   handleCanvasSelectionCreated,
   handleCanvasObjectScaling,
+  handlePathCreated,
 } from "@/lib/canvas";
 import { ActiveElement, Attributes } from "@/types/type";
 import { useStorage, useMutation, useUndo, useRedo } from "@/liveblocks.config";
@@ -150,6 +151,10 @@ export default function Home() {
 
     canvas.on("object:scaling", (options: any) => {
       handleCanvasObjectScaling({ options, setElementAttributes });
+    });
+
+    canvas.on("path:created", (options: any) => {
+      handlePathCreated({ options, syncShapeInStorage });
     });
 
     window.addEventListener("resize", () => {
