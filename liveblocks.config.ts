@@ -30,12 +30,10 @@ type Storage = {
 //   id?: string,  // Accessible through `user.id`
 //   info?: Json,  // Accessible through `user.info`
 // };
-type UserMeta = {
-  info: {
-    name: string;
-    color: [string, string];
-    avatar?: string;
-  };
+type UserMeta = {};
+type RoomEvent = {
+  // type: "NOTIFICATION",
+  // ...
 };
 // Optionally, the type of custom events broadcast and listened to in this
 // room. Must be JSON-serializable.
@@ -86,4 +84,6 @@ export const {
     useAddReaction,
     useRemoveReaction,
   },
-} = createRoomContext<Presence, Storage>(client);
+} = createRoomContext<Presence, Storage, UserMeta, RoomEvent, ThreadMetadata>(
+  client
+);

@@ -12,6 +12,7 @@ import ReactionSelector from "./reaction/ReactionButton";
 import FlyingReaction from "./reaction/FlyingReaction";
 import useInterval from "@/hooks/useInterval";
 import LiveAvatars from "./users/LiveAvatar";
+import { Comments } from "./comments/Comments";
 
 type CursorStateType = {
   mode: CursorMode;
@@ -167,7 +168,7 @@ const Live = ({ canvasRef }: Props) => {
       onPointerLeave={handlePointerLeave}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
-      className="h-[100vh] w-full flex justify-center items-center text-center"
+      className="relative h-full w-full flex flex-1 justify-center items-center"
     >
       <canvas ref={canvasRef} />
       {/* <LiveAvatars /> */}
@@ -192,6 +193,7 @@ const Live = ({ canvasRef }: Props) => {
         <ReactionSelector setReaction={setReactionFunc} />
       )}
       <LiveCursors others={others} />
+      <Comments />
     </div>
   );
 };
