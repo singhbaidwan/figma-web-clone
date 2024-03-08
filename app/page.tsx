@@ -194,7 +194,7 @@ export default function Home() {
       />
       <section className="flex h-full flex-row">
         <LeftSideBar allShapes={Array.from(canvasObjects)} />
-        <Live canvasRef={canvasRef} />
+        <Live canvasRef={canvasRef} undo={undo} redo={redo} />
         <RightSideBar
           fabricRef={fabricRef}
           elementAttributes={elementAttributes}
